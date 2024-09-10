@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 // import  from "next/link";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import React from "react";
 import GoogleSigninButton from "../GoogleSigninButton";
