@@ -163,7 +163,11 @@ const menuGroups = [
         label: "Tables",
         route: "#",
         children: [
-          { label: "Tables", route: "/tables" },
+          { label: "Tables", route: "/tables"
+           },
+           {
+            label: "Pharmacies", route: "/pharmacies"
+           }
         ],
       },
       {
