@@ -1,17 +1,20 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
-import Signin from "@/components/Auth/Signin";
+import Signin from "@/components/Auth/Signin/page";
+import SigninWithPassword from "@/components/Auth/SigninWithPassword";
 
-export const metadata: Metadata = {
-  title: "Next.js Login Page | NextAdmin - Next.js Dashboard Kit",
-  description: "This is Next.js Login Page NextAdmin Dashboard Kit",
-};
+// export const metadata: Metadata = {
+//   title: "Next.js Login Page | NextAdmin - Next.js Dashboard Kit",
+//   description: "This is Next.js Login Page NextAdmin Dashboard Kit",
+// };
 
 const SignIn: React.FC = () => {
+
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Sign In" />

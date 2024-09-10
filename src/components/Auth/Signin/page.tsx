@@ -1,13 +1,19 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
+import { useState } from "react";
+// import  from "next/link";
 import { Router, useRouter } from "next/router";
+import Link from "next/link";
+import React from "react";
+import GoogleSigninButton from "../GoogleSigninButton";
+import SigninWithPassword from "../SigninWithPassword";
 
-export default function SigninWithPassword() {
+export default function Signin() {
+  
+  
   const [email , setemail] = useState('')
   const [password, setpassword] = useState('')
   const [error , seterror] = useState('')
-  // const router = useRouter();
+  const router = useRouter();
   // const [loading , setloading] = useState(false)
 
   const handleSubmit = async (e: any) => {
@@ -34,6 +40,7 @@ try{
   const data = await response.json();
   const { token } = data;
       localStorage.setItem('authToken', token);
+      router.push('/');
       
   // setloading(false)
   console.log(data)
@@ -46,10 +53,21 @@ try{
 }
 };
 
- 
-
   return (
-    <form onSubmit={handleSubmit}>
+    <>
+      <GoogleSigninButton text="Sign in" />
+
+      <div className="my-6 flex items-center justify-center">
+        <span className="block h-px w-full bg-stroke dark:bg-dark-3"></span>
+        <div className="block w-full min-w-fit bg-white px-3 text-center font-medium dark:bg-gray-dark">
+          Or sign in with email
+        </div>
+        <span className="block h-px w-full bg-stroke dark:bg-dark-3"></span>
+      </div>
+
+      <div>
+        {/* <SigninWithPassword /> */}
+        <form onSubmit={handleSubmit}>
       <div className="mb-4">
         <label
           htmlFor="email"
@@ -182,5 +200,16 @@ try{
         </button>
       </div>
     </form>
+      </div>
+
+      <div className="mt-6 text-center">
+        <p>
+          Don’t have any account?{" "}
+          <Link href="/auth/signup" className="text-primary">
+            Sign Up
+          </Link>
+        </p>
+      </div>
+    </>
   );
 }
