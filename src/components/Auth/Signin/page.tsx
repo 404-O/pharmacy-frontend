@@ -38,8 +38,9 @@ try{
   }
 
   const data = await response.json();
-  const { token } = data;
+  const { token, user_id }= data;
       localStorage.setItem('authToken', token);
+      localStorage.setItem('userId',user_id);
       router.push('/');
       
   // setloading(false)
